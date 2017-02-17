@@ -1,27 +1,50 @@
-\documentclass [pagesize=false, british, a4paper, 12pt]{scrbook}
-\usepackage {fontspec}
-\setmainfont {Tahoma}
-\usepackage {babel}
-\usepackage {paperandpencil}
+\documentclass {article}
+\usepackage [margin=1in, letterpaper, 10pt]{geometry}
+% \usepackage {fontspec}
+% \setmainfont {Tahoma}
+\usepackage {tabu, amssymb}
+\usepackage {multicol}
+\usepackage {calc}
+% \usepackage {paperandpencil}
 \begin {document}
 \pagenumbering {arabic}
-\vertikalblockfive {Bisaya}{Ingles}{Bisaya na may halong Ingles}{Ingles na may halong Bisaya\\}{Iba}{%
-  \blocktextfive {Ano ang unang wikang iyong natututan}
-  \blocktextfive {Ako ay mas komportable sa wikang}
-  \blocktextfive {Mas interesado ako makining sa science gamit ang}
-  \blocktextfive {Mas marami akong natutunan kung ang gamit ay}
-  \blocktextfive {Kung magtalakayan ang guro ng Math o Science and wikang mas gusto}
-  \blocktextfive {Ito ang pinakamaaling gamiting na wika sa klase}
-  \blocktextfive {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
-  \blocktextfive {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
-  \blocktextfive {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
-  \blocktextfive {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
-  \blocktextfive {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
-}
+Pangalan: \hrulefill
+
+\begin{multicols}{4}
+Edad: \hrulefill\\
+Block: \hrulefill\\
+Kasarian: \hrulefill\\
+\end{multicols}
+
+\setlength\extrarowheight{0.5cm}
+\newcommand{\question}[1]{#1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
+  & \hrule\\}
+\begin{tabu} to 1\textwidth { X[2,l] X[1,c] X[1,c] X[1,c] X[1,c] X[1,c] }
+  & Bisaya & Ingles & Bisaya na may halong Ingles & Ingles na may halong Bisaya & Iba \\
+  \question {Ano ang unang wikang iyong natututan}
+  \question {Ako ay mas komportable sa wikang}
+  \question {Mas marami akong natutunan kung ang gamit ay}
+  \question {Ito ang pinakamaaling gamiting na wika sa klase}
+  \question {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
+\end{tabu}
+
+% \vertikalblockfour {Bisaya}{Ingles}{Bisaya na may halong Ingles}{Ingles na may halong Bisaya\\}{%
+%   \blocktextfour {Ano ang unang wikang iyong natututan}
+%   \blocktextfour {Ako ay mas komportable sa wikang}
+%   \blocktextfour {Mas interesado ako makining sa science gamit ang}
+%   \blocktextfour {Mas marami akong natutunan kung ang gamit ay}
+%   \blocktextfour {Kung magtalakayan ang guro ng Math o Science and wikang mas gusto}
+%   \blocktextfour {Ito ang pinakamaaling gamiting na wika sa klase}
+%   \blocktextfour {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
+%   \blocktextfour {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
+%   \blocktextfour {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
+%   \blocktextfour {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
+%   \blocktextfour {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
 \end {document}
-%%% Local Variables: 
-%%% TeX-engine: luatex 
-%%% End: 
 %%% Local Variables: 
 %%% TeX-engine: luatex 
 %%% End: 
