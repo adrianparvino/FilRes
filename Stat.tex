@@ -1,16 +1,142 @@
-\documentclass {article}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+\documentclass[answers, 12pt]{exam}
+
+\usepackage {fontspec}
+\setmainfont {Calibri}
+\usepackage[letterpaper,margin=1in,top=0.5in,includehead]{geometry}
+
+\usepackage{pgf,pgffor}
+
+\usepackage{array}
+\usepackage{tabu}
+
+\usepackage[at]{easylist}
+\usepackage{color}
+\definecolor{light-gray}{gray}{0.95}
+
+\include{Common}
+
+\usepackage[normalem]{ulem}
+\usepackage{multicol}
+
 \usepackage {graphicx}
 \graphicspath {{.}}
-\fancypagestyle{firststyle}
-{
-   \fancyhf{}
-   \fancyhead[L]{\includegraphics[scale=0.4]{USC}}
-}
+
+\usepackage {xcolor, soul}
+
+\usepackage {calc}
+\linespread{1.09}
+\setlength{\parskip}{0.14in}
+\setlength{\parindent}{0pt}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\firstpageheader{\includegraphics[height=0.68in, keepaspectratio]{USC}}{}{}
+\runningheader{\includegraphics[height=0.68in, keepaspectratio]{USC}}{}{}
+\runningfooter{}{}{}
+
+\extraheadheight{\heightof{\includegraphics[height=0.68in, keepaspectratio]{USC}}}
+
 \begin {document}
-\thispagestyle{firststyle}
-Hello World!
+
+{\centering Performance Task on Sampling for Respondents\par}
+Group Number: \underline{ 3 } 
+Block: \underline{ P }
+
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{leftmargin=1em,label=\(\square\)}
+
+\begin{multicols}{2}[Names:]
+  \newcommand\longunderline[1]{\uline{\hspace*{0.1cm}#1\hfill}}
+  \authors[\longunderline]
+\end {multicols}
+
+\renewcommand{\thequestion}{\Alph{question}}
+\unframedsolutions
+\renewcommand{\solutiontitle}{\vspace{-0.20in}}
+\begin {questions}
+\question{Thesis Title {\color{red}(2 points)}}
+  \begin{solution}
+    \researchtitle
+  \end {solution}
+
+\question{Define precisely the target population {\color{red}(2 points)}}
+  \begin {solution}
+    USC STEM Senior High Students
+  \end{solution}
+
+\question{Attach the sampling frame {\color{red}(5 points)}}
+\question{Population Size: \underline{ 357 } (1 point)}
+\question{Compute for the sample size {\color{red}(3 points)}}
+  \begin {solution}
+    \[n = \frac{N}{1+Ne^2} = \frac{357}{1 + 357*(0.1)^2} \approx 79\]
+  \end {solution}
+\question{Suitable Probability Sampling Procedure: Simple Random Sampling
+    {\color{red}(2 points)}}
+\question{Describe the steps in the procedure. {\color{red}(2 points)}}
+  \begin {solution}
+    \sethlcolor{light-gray}
+    \newcommand{\code}[1]{\hl{\texttt{#1}}}
+    We can do the following to simulate a shuffle/lottery:
+    \begin{enumerate}
+    \item We place the dataset on a single column. e.g. \code{A1:A357}
+      
+    \item We generate \(N\) numbers using \code{RAND} e.g. \code{B1 = RAND()} and
+      autofill down to \code{B357}.
+
+    \item We use \code{RANK} to simulate a shuffle. We only need to generate
+      \(n\) numbers. e.g.\\\code{C1 = RANK(B1, B\$1:B\$357)} and autofill down to
+      \code{C79}. The \code{\$} means to not increment on autofill.
+
+    \item We autofill the next column with incrementing numbers. e.g. \code{D1 = 1}, \code{D2 = 2}, \ldots
+
+    \item We can sort the random numbers by using \code{SMALL(RANKCOLUMN, INCREMENTINGCELL)}. e.g. \code{E1 = SMALL(C\$1:C\$257, D1)}, and autofill to \code{E257}.
+
+    \item We use \code{INDEX(DATASETCOLUMN, SORTEDCELL, 1)} to select certain values on
+      the dataset. e.g. \code{F1 = INDEX(A\$1:A\$357, E1, 1)} and autofill down
+      to \code{F79}.
+
+    \end {enumerate}
+  \end {solution}
+\question{Indiciate the corresponding number of each of your respondents.
+    (Attach evidence of the random selection of respondents) {\color{red} (20 points)}}
+  \begin {solution}
+    \begin{tabu} to 1\textwidth { | X[c] | X[c] | X[c] | }
+      \hline
+      \rowfont{\vspace{-1.2em} \color{red}}
+      \begin{todolist}
+      \item Comfortable with the use of a spread sheet to generate the random numbers
+      \item Generates the random numbers in less than the given time
+      \item Sorts the generated numbers
+      \end {todolist} &
+      \begin{todolist}
+      \item Comfortable with the use of a spread sheet to generate the random numbers
+      \item Generates the random numbers in less than the given time
+      \item Sorts the generated numbers
+      \end {todolist} &
+      \begin{todolist}
+      \item Comfortable with the use of a spread sheet to generate the random numbers
+      \item Generates the random numbers in less than the given time
+      \item Sorts the generated numbers
+      \end {todolist} \\
+      \hline
+      \rowfont{\vspace{-0.6em} \color{red}} 15-20 points & 11-15 points & 1-5 points \\ 
+      \hline
+    \end{tabu}
+  \end {solution}
+\question{List the specific names of your respondents (use a separate sheet
+    for this list)}
+\end {questions}
+
+\vspace{2em} {\color{red} Final write-up submitted on time (10 points)}
+\pagebreak
+\fontsize{8pt}{-1pt}\selectfont
+\begin{multicols}{3}
+\begin{enumerate}
+\foreach \x in \respondents {
+  \item \x
+}
+\end{enumerate}
+\end{multicols}
 \end {document}
 %%% Local Variables: 
 %%% TeX-engine: luatex 
