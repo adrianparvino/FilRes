@@ -9,12 +9,14 @@
   enlargefirstpage=true,
   fromalign=left,
   addrfield=topaligned,
-  ]{scrlttr2}
+  ]{scrartcl}
 
-\usepackage[margin=0.75in]{geometry}
+\renewcommand{\pagemark}{}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{pgf,pgffor}
 
 \usepackage[english]{babel}
-\renewcommand*{\raggedsignature}{\raggedright} % Stop the signature from indenting
 % \usepackage {fontspec}
 % \setmainfont {Tahoma}
 \include {Common}
@@ -23,8 +25,7 @@
 \usepackage {calc}
 % \usepackage {paperandpencil}
 \begin {document}
-\pagenumbering {arabic}
-
+\foreach \x in \respondents {
 {\centering{\bfseries Survey Questionnaire}
 
 }
@@ -49,7 +50,7 @@ Mananaliksik
 
 \vfill
 
-Pangalan: \hrulefill
+Pangalan: \x
 
 \begin{multicols}{3}
   Edad: \hrulefill\par
@@ -58,7 +59,7 @@ Pangalan: \hrulefill
 \end{multicols}
 
 \tabulinesep=0.2cm
-\newcommand{\question}[1]{#1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
+\newcommand{\question}[1]{##1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
   & \hrule\\}
 \begin{tabu} to 1\textwidth { X[2,l,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c] }
   & Bisaya & Ingles & Bisaya na may halong Ingles & Ingles na may halong Bisaya & Iba \\
@@ -73,18 +74,8 @@ Pangalan: \hrulefill
   \question {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
 \end{tabu}
 
-% \vertikalblockfour {Bisaya}{Ingles}{Bisaya na may halong Ingles}{Ingles na may halong Bisaya\\}{%
-% \blocktextfour {Ano ang unang wikang iyong natututan}
-% \blocktextfour {Ako ay mas komportable sa wikang}
-% \blocktextfour {Mas interesado ako makining sa science gamit ang}
-% \blocktextfour {Mas marami akong natutunan kung ang gamit ay}
-% \blocktextfour {Kung magtalakayan ang guro ng Math o Science and wikang mas gusto}
-% \blocktextfour {Ito ang pinakamaaling gamiting na wika sa klase}
-% \blocktextfour {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
-% \blocktextfour {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
-% \blocktextfour {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
-% \blocktextfour {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
-% \blocktextfour {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
+\pagebreak
+}
 \end {document}
 %%% Local Variables: 
 %%% TeX-engine: luatex 
