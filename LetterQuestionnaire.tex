@@ -1,0 +1,91 @@
+\documentclass[
+  parskip=half,
+  backaddress=false,
+  address=false,
+  foldmarks=true,
+  foldmarks=blmtP,
+  version=last,
+  paper=legal,
+  enlargefirstpage=true,
+  fromalign=left,
+  addrfield=topaligned,
+  ]{scrlttr2}
+
+\usepackage[margin=0.75in]{geometry}
+
+\usepackage[english]{babel}
+\renewcommand*{\raggedsignature}{\raggedright} % Stop the signature from indenting
+% \usepackage {fontspec}
+% \setmainfont {Tahoma}
+\include {Common}
+\usepackage {tabu, amssymb}
+\usepackage {multicol}
+\usepackage {calc}
+% \usepackage {paperandpencil}
+\begin {document}
+\pagenumbering {arabic}
+
+{\centering{\bfseries Survey Questionnaire}
+
+}
+Binibini/Ginoo:
+
+Ang talumpating ito ay naglalayong mangalap ng mga datos para sa aking
+isanagawang pag-aaral na may pamagat na {\bfseries``\researchtitle''} bilang pagtupad sa
+pangangailang ng kursong Filipino 11, Pagbasa at Pagsussuri ng Iba't ibang
+Tektso Tungo sa Pananaliksik.
+
+Kaugnay dito, kayo'y pinakiusapang tapat na sagutin ang talatanungang ito.
+Opsyonal ang pasuslat ng iyong pangalan, kaya malaya ninyong sagutin ang mga
+tanong. Umasa po kayong lahat ng datos na inyong ibibigay ay pananatilihing
+lihim at magsisilbing batayan lamang sa isinasagawang pag-aaral kaya huwag
+sanang mag-iwan ng kahit isang aytem na walang sagot.
+
+Ang inyong kooperasyon ay lubos na pahahalagahan. Maraming salamat!
+
+Sumasainyo,
+
+Mananaliksik
+
+\vfill
+
+Pangalan: \hrulefill
+
+\begin{multicols}{3}
+  Edad: \hrulefill\par
+  Block: \hrulefill\par
+  Kasarian: \hrulefill
+\end{multicols}
+
+\tabulinesep=0.2cm
+\newcommand{\question}[1]{#1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
+  & \hrule\\}
+\begin{tabu} to 1\textwidth { X[2,l,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c] }
+  & Bisaya & Ingles & Bisaya na may halong Ingles & Ingles na may halong Bisaya & Iba \\
+  \question {Ano ang unang wikang iyong natututan}
+  \question {Ako ay mas komportable sa wikang}
+  \question {Mas marami akong natutunan kung ang gamit ay}
+  \question {Ito ang pinakamaaling gamiting na wika sa klase}
+  \question {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
+  \question {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
+\end{tabu}
+
+% \vertikalblockfour {Bisaya}{Ingles}{Bisaya na may halong Ingles}{Ingles na may halong Bisaya\\}{%
+% \blocktextfour {Ano ang unang wikang iyong natututan}
+% \blocktextfour {Ako ay mas komportable sa wikang}
+% \blocktextfour {Mas interesado ako makining sa science gamit ang}
+% \blocktextfour {Mas marami akong natutunan kung ang gamit ay}
+% \blocktextfour {Kung magtalakayan ang guro ng Math o Science and wikang mas gusto}
+% \blocktextfour {Ito ang pinakamaaling gamiting na wika sa klase}
+% \blocktextfour {Mas nakakatuto ako sa Religious Education kung ito ay ipinaliliwanag sa wikang}
+% \blocktextfour {Mas nakakatuto ako sa Social Science kung ito ay ipinaliliwanag sa wikang}
+% \blocktextfour {Mas nakakatuto ako sa Mathematics kung ito ay ipinaliliwanag sa wikang}
+% \blocktextfour {Mas nakakatuto ako sa Chem kung ito ay ipinaliliwanag sa wikang}
+% \blocktextfour {Mas nakakatuto ako sa Personal Development kung ito ay ipinaliliwanag sa wikang}%
+\end {document}
+%%% Local Variables: 
+%%% TeX-engine: luatex 
+%%% End: 
