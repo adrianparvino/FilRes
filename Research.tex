@@ -2,6 +2,7 @@
 \usepackage [margin=1in, letterpaper]{geometry}
 
 \usepackage {luatex85}
+\usepackage{standalone}
 
 \linespread {1.3}
 % \usepackage {fontspec}
@@ -12,6 +13,7 @@
 \tableofcontents
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0pt}
+\input{Cover}
 \RedeclareSectionCommand[
   beforeskip=0pt,
   afterskip=0pt]{chapter}
