@@ -17,10 +17,26 @@
 
 \usepackage{enumitem}
 \usepackage{titlesec}
+\usepackage[section=section]{glossaries}
 
 % \renewcommand{\cftchapfont}{%
 %   \normalfont\bfseries
 % }
+
+\makeglossaries
+\newglossaryentry{student}
+{
+  name = {USC SHS STEM},
+  description = {Mga mag-aaral na naka-enroll sa Senior High School sa
+paaralang University of San Carlos}
+}
+
+\newglossaryentry{cebuano}
+{
+  name = {Wikang Cebuano},
+  description = {Likas na wika ng Cebu, Visayas, Philippines}
+}
+
 
 \begin {document}
 \input{Cover}
@@ -95,7 +111,7 @@ Ito ang mga tanong na nais naming masagot sa pagsagawa ng pag-aaral na ito:
 
 \section{Kahalagahan ng Pag-aaral}
 Layunin ng pag-aaral na ito na malaman kung ang pinaniniwalaang pinakaepektibong
-wikang ginagamit sa pagtuturo (wikang Bisaya) ay talaga nga bang mabisa sa
+wikang ginagamit sa pagtuturo (\gls{cebuano}) ay talaga nga bang mabisa sa
 pagkatuto ng mga mag-aaral ng USC-TC SHS. Ito’y malalaman namin sa pamamagitan
 ng pagtutukoy kung saang wika mas komportable ang bawat estudyante at
 samakatwid, pagtutukoy na rin kung saang wika mas may maraming natutunan ang
@@ -112,7 +128,7 @@ kanilang kinabukasan.
 
 \pagebreak
 \section {Saklaw at Limitasyon ng Pag-aaral}
-Ang pagsusuring ito ay nalilimita lamang sa mga USC SHS STEM students. Nais
+Ang pagsusuring ito ay nalilimita lamang sa mga \glspl{student}. Nais
 naming malaman kung anu-anong mga wika ang angkop gamitin sa mga \emph{piling
   asignatura}.
 
@@ -124,7 +140,8 @@ Hindi rin masisigurado ng pag-aaral na ito na ang mga mairerekomenda wikang
 ipagamit sa bawat asignatura na kasaklaw rito ay ang tiyak na pinakamabisang
 gamitin sa asignaturang iyon sapagkat opinyon lamang ng mga estudyante ang aming
 gamit sa pagsusuri upang makamit ang impormasyong ito.
-\section{Depinisyon ng mga Terminolohiya}
+
+\printglossary
 
 \chapter{Konseptuwal o Toretikal na Balangkas at mga Kauganayan na Pag-aaral ng Literatura}
 \section {Konseptuwal o Toretikal na Balangkas}
