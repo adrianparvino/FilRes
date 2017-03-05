@@ -25,7 +25,7 @@
 \usepackage {calc}
 % \usepackage {paperandpencil}
 \begin {document}
-\foreach \x in \respondents {
+% \foreach \x in \respondents {
 {\centering{\bfseries Survey Questionnaire}
 
 }
@@ -50,7 +50,7 @@ Mananaliksik
 
 \vfill
 
-Pangalan: \x
+Pangalan: \hrulefill % \x
 
 \begin{multicols}{3}
   Edad: \hrulefill\par
@@ -59,7 +59,7 @@ Pangalan: \x
 \end{multicols}
 
 \tabulinesep=0.2cm
-\newcommand{\question}[1]{##1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
+\newcommand{\question}[1]{#1 & \(\square\) & \(\square\) & \(\square\) & \(\square\)
   & \hrule\\}
 \begin{tabu} to 1\textwidth { X[2,l,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c,m] X[1,c] }
   & Bisaya & Ingles & Bisaya na may halong Ingles & Ingles na may halong Bisaya & Iba \\
@@ -75,8 +75,8 @@ Pangalan: \x
 \end{tabu}
 
 \pagebreak
-}
+% }
 \end {document}
 %%% Local Variables: 
-%%% TeX-engine: luatex 
+%%% TeX-engine: xetex
 %%% End: 
