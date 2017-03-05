@@ -37,14 +37,19 @@
 %   beforeskip=0pt,
 %   afterskip=1sp]{section}
 \parindent=0.5in
+\parskip=\baselineskip
 \titleformat{name=\chapter}[display]
 {\bfseries}
-{\centering Kabanata \thechapter}
-{0pt}{\centering}
+{\centering KABANATA \Roman{chapter}}
+{-\parskip}{\centering\uppercase}
+
 \titleformat{name=\section}[display]
 {\bfseries}
 {}
-{0pt}{}
+{-\parskip}{}
+
+\titlespacing*{name=\chapter}{0pt}{0pt}{-\baselineskip}
+\titlespacing*{name=\section}{0pt}{0pt}{0pt}
 %\renewcommand*{\chapterformat}{\centering Kabanata \thechapter:\enskip}
 %\renewcommand*{\sectionformat}{}
 \pagebreak
