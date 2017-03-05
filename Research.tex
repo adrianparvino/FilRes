@@ -1,31 +1,52 @@
-\documentclass [parskip=full, 11pt] {scrreprt}
+\documentclass [11pt] {report}
 \usepackage [margin=1in, left=1.5in, letterpaper]{geometry}
+
+% \usepackage[titles]{tocloft}
+
+\usepackage {titlesec}
+
+\usepackage {luatex85}
 
 \usepackage{standalone}
 \usepackage{calc}
 
 \linespread {1.3}
 \usepackage {fontspec}
-\setmainfont [ItalicFont={Tahoma Faux Italic}]{Tahoma}
+%\setmainfont {Tahoma}
+%\setmainfont [ItalicFont={Tahoma Faux Italic}]{Tahoma}
 
 \usepackage{enumitem}
+\usepackage{titlesec}
+
+% \renewcommand{\cftchapfont}{%
+%   \normalfont\bfseries
+% }
 
 \begin {document}
 \input{Cover}
 \newcommand\discard[1]{}
-\RedeclareSectionCommand[
-  font=\normalfont\bfseries,
-  tocentrynumberformat=\discard,
-  beforeskip=0pt,
-  afterskip=0pt]{chapter}
-\RedeclareSectionCommand[
-  font=\normalfont\bfseries,
-  tocentrynumberformat=\discard,
-  beforeskip=0pt,
-  afterskip=1sp]{section} %% Why can't we have an afterskip of 0?
-\tableofcontents
+% \RedeclareSectionCommand[
+%   font=\normalfont\bfseries,
+%   tocentrynumberformat=\discard,
+%   beforeskip=0pt,
+%   innerskip=1pt,
+%   afterskip=1sp]{chapter}
+% \RedeclareSectionCommand[
+%   font=\normalfont\bfseries,
+%   tocentrynumberformat=\discard,
+%   beforeskip=0pt,
+%   afterskip=1sp]{section}
 \parindent=0.5in
-\renewcommand*{\chapterformat}{Kabanata \thechapter\enskip}
+\titleformat{name=\chapter}[display]
+{\bfseries}
+{\centering Kabanata \thechapter}
+{0pt}{\centering}
+\titleformat{name=\section}[display]
+{\bfseries}
+{}
+{0pt}{}
+%\renewcommand*{\chapterformat}{\centering Kabanata \thechapter:\enskip}
+%\renewcommand*{\sectionformat}{}
 \pagebreak
 \chapter {Ang Suliranin at ang Kaligiran Nito}
 \section {Rasyunal}
@@ -47,7 +68,7 @@ Masmadaling makakapagpatuloy ang guro sa kanyang mga leson at masmaraming
 matutunan ang mga mag-aaral.
 
 \pagebreak
-\section {Paglalahad ng Suliranin at Kahalagahan ng Pag-aaral}
+\section {Paglalahad ng Suliranin}
 Ang pagsusuring ito ay nais malaman kung ano ang tamang wika gagamitin sa mga
 piling asignatura.
 
@@ -66,8 +87,10 @@ Ito ang mga tanong na nais naming masagot sa pagsagawa ng pag-aaral na ito:
 \item Nakakaapekto ba ang wikang sila'y komportable sa kanilang sagot?
 \end{enumerate}
 
+\section{Kahalagahan ng Pag-aaral}
+
 \pagebreak
-\section {Saklaw at Limitasyon ng Pag-aaral at Depinisyon ng mga Terminolohiya}
+\section {Saklaw at Limitasyon ng Pag-aaral}
 Ang pagsusuring ito ay nalilimita lamang sa mga USC SHS STEM students. Nais
 naming malaman kung anong wika ang tamang gamitin sa mga \emph{piling
   asignatura}.
@@ -76,10 +99,8 @@ Walang kasiguraduhan na ito ay pareho rin sa ibang mga paaralan. Hindi layunin
 ng pagsusuring ito ang magkaroon ng iisang wika lamang sa lahat ng mga
 asignatura.
 
-%Maspinahahalagahan namin ang sagot na nasa choices kaysa sa ``Iba.''
+\section{Depinisyon ng mga Terminolohiya}
 
-% Ang mga respondente ay ipinili gamit ang \emph{Simple Random Sampling}\footnote{Simple Random Sampling -- Isang paraan ng pagpili na parang lottery}.
-\pagebreak
 \chapter{Konseptuwal o Toretikal na Balangkas at mga Kauganayan na Pag-aaral ng Literatura}
 \section {Konseptuwal o Toretikal na Balangkas}
 \pagebreak
@@ -102,6 +123,10 @@ dapat maghikayat ng \emph{inclusion} at hindi ng \emph{exclusion}. Ang
 paghikayat ng \emph{multicultural education} sa paaralan ay hindi mahirap at
 hindi rin ito nakapapa-walang-bisa sa mga kasanayang prosa ng \emph{curriculum}.
 
+\chapter{Something}
+%Maspinahahalagahan namin ang sagot na nasa choices kaysa sa ``Iba.''
+
+% Ang mga respondente ay ipinili gamit ang \emph{Simple Random Sampling}\footnote{Simple Random Sampling -- Isang paraan ng pagpili na parang lottery}.
 \end {document}
 %%% Local Variables: 
 %%% TeX-engine: xetex
