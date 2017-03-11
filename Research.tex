@@ -1,19 +1,31 @@
-\documentclass [11pt] {report}
+\documentclass [british, 11pt] {report}
 \usepackage [margin=1in, left=1.5in, letterpaper]{geometry}
 
 
 % \usepackage[titles]{tocloft}
-
 \usepackage {titlesec}
-
-\usepackage {luatex85}
 
 \usepackage{standalone}
 \usepackage{calc}
+\usepackage{tikz}
 
-\linespread {1.3}
+\usepackage {tikz}
+\usepackage {graphicx}
+\graphicspath {{.}}
+
+\usepackage{babel}
+
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{Research.bib}
+\DeclareLanguageMapping{british}{british-apa}
+% \renewcommand\bibname{LISTAHAN NG SANGGUNIAN}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+\linespread {1.6}
 \usepackage {fontspec}
-\setmainfont {Tahoma}
+%\setmainfont {Tahoma}
 \setmainfont [ItalicFont={Tahoma Faux Italic}]{Tahoma}
 
 \usepackage{enumitem}
@@ -21,6 +33,14 @@
 \usepackage[section=section]{glossaries}
 
 \makeglossaries
+\glsaddkey*  
+{verb}% key  
+{} % default value  
+{\glsentryverb}% command analogous to \glsentrytext  
+{\Glsentryverb}% command analogous to \Glsentrytext  
+{\glsverb}% command analogous to \glstext  
+{\Glsverb}% command analogous to \Glstext  
+{\GLSverb}% command analogous to \GLStext  
 \newglossaryentry{student}
 {
   name = {USC SHS STEM},
@@ -34,11 +54,32 @@ paaralang University of San Carlos}
   description = {Likas na wika ng Cebu, Visayas, Philippines}
 }
 
+\newglossaryentry{srs}
+{
+  name = {simple random sampling},
+  description = {isang paraan ng pagpili na parang lottery}
+}
+
 \newglossaryentry{-bilang}
 {
   name = {subtractive bilingualism},
-  description = {pagbawas ng paggamit ng inang wika ng imegranting bata hanggang
+  description = {pagbawas ng paggamit ng inang wika ng imigranteng bata hanggang
   sila ay maggingng \emph{monolingual} sa salitang Ingles na lamang}
+}
+
+\newglossaryentry{satisfaction}
+{
+  name = {satisfaction},
+  description = {ang pagkasang-ayon ng tao sa isang wika},
+  verb = {satsfied}
+}
+
+\newglossaryentry{satisfactionfull}
+{
+  name = {full satisfaction},
+  description = {nakakamit sa pagpili ng wika na pareho sa wikang pinili ng repsondente},
+  verb = {fully satisfied},
+  sort = {satisfaction, full}
 }
 
 \begin {document}
@@ -58,6 +99,9 @@ paaralang University of San Carlos}
 
 \titlespacing*{name=\chapter}{0pt}{-2.0\parskip}{-\parskip}
 \titlespacing*{name=\section}{0pt}{0pt}{0pt}
+\parskip=0em
+\tableofcontents
+\parskip=\baselineskip
 \chapter {Ang Suliranin at ang Kaligiran Nito}
 \section {Rasyunal}
 Ang Pilipinas ay may mayamang kultura. Ito ay resulta ng pagkakasakop ng bansa
@@ -85,8 +129,7 @@ Nais ng mga mananaliksik na malaman sa pamamagitan ng pagsasagawa ng pagsusuring
 ito ang tamang wikang gagamitin sa mga piling asignatura.
 
 Ito ang mga tanong na nais naming masagot sa pagsagawa ng pag-aaral na ito:
-
-\begin{enumerate}[parsep=\baselineskip,itemsep=-0.5\baselineskip]
+\begin{enumerate}[parsep=0.5\parskip,topsep=-0.5\parskip]
 \item Anong wika ang kanaisnais na gamitin sa mga piling asignatura:
   \begin{enumerate}[nosep]
   \item Mathematics;
@@ -137,16 +180,15 @@ gamit sa pagsusuri upang makamit ang impormasyong ito.
 \chapter{Konseptuwal o Toretikal na Balangkas at mga Kauganayan na Pag-aaral ng Literatura}
 \section {Konseptuwal o Toretikal na Balangkas}
 Ang konsepto ng Bilingualism ay itinalakay na sa mga mag-iba-ibang perspektibong
-toretikal. Ilang mga mananaliksik na piniling pag-aralan ang paksang ito ay sina
-Dodson (1985), Skinner (1985) at Krashen (1982). Ngunit dahil sa likas na
-pagka-diverse ng paksang ito, ang iisang teoryang pangunibersal na mag-uugnay sa
-iba-ibang mga perspektibo patungkol rito ay malabong makamit at kung meron man,
-hindi ito ganap na maituturing na eksakto.
+toretikal. Ngunit dahil sa likas na pagka-diverse ng paksang ito, ang iisang
+teoryang pangunibersal na mag-uugnay sa iba-ibang mga perspektibo patungkol rito
+ay malabong makamit at kung meron man, hindi ito ganap na maituturing na
+eksakto.
 
 Karaniwan sa ating mga Pilipino, kung hindi lahat, ay may multilingual na dila.
 Ang sitwasyon ng wika sa Pilipinas, isang bansang sinasaklaw ng higit-kumulang
 pitong libong mga pulo, ay pawang complicado sa heograpikong diwa man o sa
-makasaysayang pag-unawa. Ayon kay Kawahara (2003), mayroong walong pangunahing
+makasaysayang pag-unawa. Ayon kay \textcite{KAWAHARA}, mayroong walong pangunahing
 wika sa bansa--Ilokano, Pampangan, Pangasinan, Tagalog, Bicol, Hiligaynon, Waray
 at Cebuano--at inilahad na pagkatapos pa ng walong pangunahing mga wikang ito ay
 iba pang sari-saring mga wikang sinasalita ng ilang daang libong mga Pilipino.
@@ -154,7 +196,7 @@ At sa bingit pa ng mga nagsasaring wikang ito ay ang mga wikang sinasalita ng
 mga minority races na tinutukoy bilang mga cultural minorities (p. 67).
 
 May maraming teoryang naglalahad sa importansya ng paggamit ng inang wika sa mga
-elementaryang baitang. Ayon sa isang pananaliksik ni Brocke-Utne (2001), mas
+elementaryang baitang. Ayon sa isang pananaliksik ni \cite{BROCKUTNE}, mas
 madaling matututo ang mga estudyante kapag inang wika ang gagamitin bilang
 medyum sa pagtuturo. Ito rin ay ang pinakamaiging gamitin bilang tulay sa
 pagkatuto ng mga pangunahing wika ng pagtuturo [eg. Ingles].
@@ -170,10 +212,10 @@ ang bata ng pagkakagawing gamitin ang Ingles bilang wika, ang itinuturing na
 ``normal'' sa bansang iyon. At sanhi ng labis na pagbawas ng paggamit ng inang
 wika ng mga imigranteng bata, ang wikang ito ay unti-unting maglalaho hanggang
 ang bata ay magiging monolingual sa salitang Ingles na lamang. Ito ang tinatawag
-na \emph{\gls{-bilang}} (Santrock, 1990).
+na \emph{\gls{-bilang}} \parencite{SANTROCK}.
 
 Ang kaalamang ito ay importante sa aming kasalukuyang pananaliksik. Ang
-pag-aaral ni Santrock (1990) ay nagpapahiwatig na hindi dahil iyan ang unang
+pag-aaral ni \textcite{SANTROCK} ay nagpapahiwatig na hindi dahil iyan ang unang
 wikang natutunan mo, iyan na ang wikang magagamit mo sa hinaharap na mga gawain.
 Malaking impluwensiya ang kultura sa iyong pag-uugali't pananalita. Sa pag-aaral
 na ito malalaman natin kung ano nga ba ang mas nakaaapekto sa mas matimbang na
@@ -181,26 +223,27 @@ kagustuhan ng karaniwan, ito ba ay ang kanilang inang wika o ang wikang
 kadalasang ginagamit sa kanilang paaralan nang sila ay lumaki.
 
 Sa ngayon, ang pinakamadalas gamitin sa pagtuturo ay ang wikang Ingles. Ayon kay
-Koo (2008) ito ay dahil ang Ingles ang wikang angkop gamitin para sa mga paksang
+\textcite{KOO} ito ay dahil ang Ingles ang wikang angkop gamitin para sa mga paksang
 pang-ekonomiyang pagsulong, mga pang-akademikong gawain, at globalisasyon (22).
-Ipinahihiwatig ni Koo (2008) rito na mahalaga ang pag-aaral ng salitang Ingles,
+Ipinahihiwatig ni \textcite{KOO} rito na mahalaga ang pag-aaral ng salitang Ingles,
 ngunit wala siyang binanggit na mas epektibong medyum ng pagtuturo ang Ingles.
 
 Ang Ingles ay madalas ginagamit sa mga pormal na pagtitipon at mga institution.
-Giit sa pag-aaral ni Borlongan (2008), hindi magiging epektibo ang pagtuturo
+Giit sa pag-aaral ni \textcite{BORLONGAN}, hindi magiging epektibo ang pagtuturo
 kung ang gamit na wika ay ang inang wika lamang. Dapat may halo itong konting
 Ingles upang maunawaan ng estudyante nang maigi ang leksiyon. Pero ganunpaman,
-ang pag-aaral na ito nina Koo (2008) at Borlongan (2009) ay isinagawa sa lungsod
+ang pag-aaral na ito nina \textcite{KOO,BORLONGAN} ay isinagawa sa lungsod
 ng Manila, kung saan ang nangingibabaw na mga wika ay ang Ingles at Filipino
 habang ang kasalukuyang pananaliksik na ito ay isinagawa rito sa Cebu lamang
 kung saan ang mga nangingibabaw na wika ay Bisaya at Ingles.
 
 Importanteng importante na malaman natin ang wastong wikang gagamitin dahil ang
 wika ay hindi lang ginagamit upang makipaghalubilo sa ibang tao sa paaralan
-kundi ito rin ay importante upang maka-angat sa social at economic status
-(Orlich, Harder, Trevisan, Brown, \& Callahan, 2009).
+kundi ito rin ay importante upang maka-angat sa social at economic
+status \parencite{ORLICH}
 
-Ayon pa rin kay Orlich, et al. (2009), ang ating mga polisyang edukasyonal ay
+
+Ayon pa rin kay \textcite{ORLICH}, ang ating mga polisyang edukasyonal ay
 dapat maghikayat ng inclusion at hindi ng exclusion. Ang paghikayat ng
 multicultural education sa paaralan ay hindi mahirap at hindi rin ito
 nakapapa-walang-bisa sa mga kasanayang prosa ng curriculum. Gusto ng lahat na
@@ -208,12 +251,14 @@ maani ang angking potensyal ng bawat estudyante kaya mahalagang malaman ang
 pinakamabisang wikang gagamitin sa pag-aaral ng bawat larangan o asignatura.
 \chapter{Disenyo at Paraan ng Pananaliksik}
 \section{Paraan ng Pananliksik}
-Ang pananliksik namin ay \emph{quantitative}. Ito ay parang isang 1--4 scale.
-And 1 ay pagpili ng ``Ingles'' at ang 4 namn ay ang pagpili ng ``Bisaya.''
+Ang pananliksik namin ay \emph{quantitative}. Ito ay mahahalintulad sa isang 1--4 scale.
+Ang 1 ay pinagpalit sa sagot na ``Bisaya'' habang ang 4 naman ay ang pinagpalit
+ng sagot na ``Ingles.''
 \section{Mga Respondente}
 Ang mga respondente ay ang mga \glspl{student}. Pinili namin ang mga
 \gls{student} dahil ang Senior High School ay ang  pinaka-experimental na
-curriculum at ang kanilang opinyon ay lubos na mahalaga.
+curriculum at ang kanilang opinyon ay lubos na mahalaga. Ang mga respondente ay
+pinipili sa pamamagitan ng \Gls{srs}.
 \section{Instrumento sa Paglakap ng Datos}
 Ang ginamit ng mga mananlikisik ay ang \emph{survey questionnaire} dahil ito ay
 masmabilis at mas madali sa pagkuha ng impormasyon lalong lalo na kapag malaki
@@ -260,15 +305,43 @@ pagtuturo't pagkatuto sa sari-saring mga subject.
 \section{Paglalapat Estatika}
 %% TODO: Change happy/happpiness.
 Kukunin namin ang \emph{Mode} at \emph{Mean} ng mga nalakap na datos. Lalong
-mahalaga ang pagkuha ng \emph{Mean} dahil dito natin mamaximize ang
-\emph{happiness} ng lahat ng tao. At ang \emph{Mode} naman ay mahalaga dahil
-dito natin mamaximize ang karamihan ng mga taong \emph{happy}.
-
-Kukunin naman natin ang \emph{Variance} upang malalaman natin kung gaano kaiba
-ang opinyon ng mga tao. Kung lubos na nagiiba ang kanilang mga opinyon pwedeng
-i-separate ang mga mag-aaral ayon sa kanilang napiling wika.
+mahalaga ang pagkuha ng \emph{Mean} dahil dito natin makamit ang
+\emph{\gls{satisfactionfull}} ng lahat ng tao. At ang \emph{Mode} naman ay mahalaga
+dahil dito natin mamaximize ang karamihan ng mga taong
+\emph{\glsverb{satisfaction}}.
 
 \chapter{Paglalahad, Pagsusuri at Interpretasyon ng mga Datos}
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar stacked,
+    symbolic x coords={Unang wika, Comfortable, Mas maraming natutunan, Magaling, Math, Reed, Socsci, Chem, Pdev},
+    xtick=data,
+    nodes near coords,
+    width=\textwidth,
+    height=0.33\textheight,
+    x tick label style={rotate=45,anchor=east},
+    legend style={at={(0.5,-0.3)},anchor=north}]
+    \addplot+ table [x=Question, y=Bisaya, col sep=comma]{Data.csv};
+    \addplot+ table [x=Question, y=Bisaya na may halong Ingles, col sep=comma]{Data.csv};
+    \addplot+ table [x=Question, y=Ingles na may halong Bisaya, col sep=comma]{Data.csv};
+    \addplot+ table [x=Question, y=Ingles, col sep=comma]{Data.csv};
+    \addplot+ table [x=Question, y=Iba, col sep=comma]{Data.csv};
+    \legend{Bisaya, Bisaya na may halong Ingles, Ingles na may halong Bisaya, Ingles, Iba}
+  \end{axis}
+\end{tikzpicture}
+
+\noindent
+Ang mga modes ng Unang Wika at Comfortable ay Bisaya ngunit ang mga modes naman
+ng iba ay ang Ingles. Kahit na pinakamaraming tao ay Unang Wika at Comfortable
+sa Bisaya, masmarami ang gustong maggamit ng Ingles sa pagkatuto. Kapag gusto
+i-maximize ang dami ng tao na \glsverb{satisfactionfull}, kailangan gamitin ang
+Ingles sa pagkatuto.
+
+Ang mean naman ay lahat nagpupunterya sa Ingles na may halong Bisaya. Kapag
+ang pakay natin ay mamaximize ang kabuuang \gls{satisfaction}, ito ang
+pinakaepektibong solusyon.
+
+
 \chapter{Paglalagom, Kongklusyon at Rekomendasyon}
 \section{Lagom}
 Ang pangunahing wika ng 84.81\% ng mga estudyanteng Senior High sa USC-TC ay
@@ -315,10 +388,8 @@ pagpapakaloob ng impormasyon.
   mag-aaral na gamitin ang wikang Ingles sa mga pang-akademikong gawain.
 \end{enumerate}
  
-
-%Maspinahahalagahan namin ang sagot na nasa choices kaysa sa ``Iba.''
-
-% Ang mga respondente ay ipinili gamit ang \emph{Simple Random Sampling}\footnote{Simple Random Sampling -- Isang paraan ng pagpili na parang lottery}.
+\printbibliography[title = {LISTAHAN NG SANGGUNIAN}]
+\IfFileExists{Biography.tex}{\input{Biography}}{}
 \end {document}
 %%% Local Variables: 
 %%% TeX-engine: xetex
