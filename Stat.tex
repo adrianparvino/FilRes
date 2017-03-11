@@ -1,15 +1,14 @@
 \documentclass[answers, 12pt]{exam}
 
+\usepackage[letterpaper,margin=1in,top=0.5in,includehead]{geometry}
 \usepackage {fontspec}
 \setmainfont {Calibri}
-\usepackage[letterpaper,margin=1in,top=0.5in,includehead]{geometry}
 
 \usepackage{pgf,pgffor}
 
 \usepackage{array}
 \usepackage{tabu}
 
-\usepackage[at]{easylist}
 \usepackage{color}
 \definecolor{light-gray}{gray}{0.95}
 
@@ -47,7 +46,7 @@ Block: \underline{ P }
 
 \begin{multicols}{2}[Names:]
   \newcommand\longunderline[1]{\uline{\hspace*{0.1cm}#1\hfill}}
-  \authors[\longunderline]
+  \authors{\longunderline}
 \end {multicols}
 
 \renewcommand{\thequestion}{\Alph{question}}
